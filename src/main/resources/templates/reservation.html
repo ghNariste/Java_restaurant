@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h2>Make ypur reservatino</h2>
+  <form action="/subimtreservation">
+    <p>
+      <label for="name">Name: </label>
+      <input type="text" name="name" id="name">
+    </p>
+    <p>
+      <label for="date">Date (dd/mm/yyyy)</label>
+      <input type="text" name="date" id="date">
+    </p>
+    <p>
+      <label for="number">Number of people</label>
+      <input type="number" name="number" id="number">
+    </p>
+    <p>
+      <input type="checkbox" name="vegeterian" value="vegeterian" id="vegeterian">
+      <label for="vegeterian">Vegeterian</label>
+    </p>
+    <select name="resIndex" id="">
+      <option value="-1">Choose</option>
+      <option th:each="reservation: ${resList}"
+              th:text="${reservation.getReustarantName}"
+              th:value="${resStat.index}"
+
+      ></option>
+    </select>
+    <input type="submit" value="Select" name="select">
+  </form>
+</body>
+</html>
